@@ -1,4 +1,4 @@
-package domain;
+package guru.springframework.domain;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -16,6 +16,14 @@ public class Ingredient {
     @ManyToOne
     private Recipe recipe;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -32,28 +40,19 @@ public class Ingredient {
         this.amount = amount;
     }
 
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
-    }
-
     public UnitOfMeasure getUnitOfMeasure() {
         return unitOfMeasure;
     }
 
     public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
         this.unitOfMeasure = unitOfMeasure;
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
     }
 }

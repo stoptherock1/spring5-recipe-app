@@ -1,4 +1,4 @@
-package domain;
+package guru.springframework.domain;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,15 +10,15 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToMany
+    @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes;
 
-    public Set<Recipe> getRecipes() {
-        return recipes;
+    public Long getId() {
+        return id;
     }
 
-    public void setRecipes(Set<Recipe> recipies) {
-        this.recipes = recipies;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -29,11 +29,11 @@ public class Category {
         this.name = name;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Set<Recipe> getRecipes() {
+        return recipes;
     }
 
-    public Long getId() {
-        return id;
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
     }
 }
